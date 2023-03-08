@@ -1,0 +1,24 @@
+{
+    "name": "goeasyapp/app",
+    "description": "App Package",
+    "authors": [
+        {
+            "name": "mccannasia",
+            "email": "mccannasia@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Goeasyapp\\App\\":"src/"
+        }
+    },
+    "extra":{
+        "laravel":{
+            "providers":[
+                "Goeasyapp\\App\\Providers\\AppServiceProvider",
+                "Goeasyapp\\App\\Providers\\RouteServiceProvider"
+            ]
+        }
+    }
+}
