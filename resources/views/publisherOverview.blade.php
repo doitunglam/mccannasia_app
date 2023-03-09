@@ -30,39 +30,153 @@
 			padding: 0 !important;
 		}
 	</style>
-	<style id='wp-block-site-logo-inline-css'>
-		.wp-block-site-logo {
-			box-sizing: border-box;
-			line-height: 0
-		}
-
-		.wp-block-site-logo a {
-			display: inline-block
-		}
-
-		.wp-block-site-logo.is-default-size img {
-			width: 120px;
-			height: auto
-		}
-
-		.wp-block-site-logo img {
+	<style id='wp-block-image-inline-css'>
+		.wp-block-image img {
 			height: auto;
-			max-width: 100%
+			max-width: 100%;
+			vertical-align: bottom
 		}
 
-		.wp-block-site-logo a,
-		.wp-block-site-logo img {
-			border-radius: inherit
+		.wp-block-image.has-custom-border img,
+		.wp-block-image img {
+			box-sizing: border-box
 		}
 
-		.wp-block-site-logo.aligncenter {
-			margin-left: auto;
-			margin-right: auto;
+		.wp-block-image.aligncenter {
 			text-align: center
 		}
 
-		.wp-block-site-logo.is-style-rounded {
+		.wp-block-image.alignfull img,
+		.wp-block-image.alignwide img {
+			height: auto;
+			width: 100%
+		}
+
+		.wp-block-image.aligncenter,
+		.wp-block-image .aligncenter,
+		.wp-block-image.alignleft,
+		.wp-block-image .alignleft,
+		.wp-block-image.alignright,
+		.wp-block-image .alignright {
+			display: table
+		}
+
+		.wp-block-image.aligncenter>figcaption,
+		.wp-block-image .aligncenter>figcaption,
+		.wp-block-image.alignleft>figcaption,
+		.wp-block-image .alignleft>figcaption,
+		.wp-block-image.alignright>figcaption,
+		.wp-block-image .alignright>figcaption {
+			display: table-caption;
+			caption-side: bottom
+		}
+
+		.wp-block-image .alignleft {
+			float: left;
+			margin: .5em 1em .5em 0
+		}
+
+		.wp-block-image .alignright {
+			float: right;
+			margin: .5em 0 .5em 1em
+		}
+
+		.wp-block-image .aligncenter {
+			margin-left: auto;
+			margin-right: auto
+		}
+
+		.wp-block-image figcaption {
+			margin-top: .5em;
+			margin-bottom: 1em
+		}
+
+		.wp-block-image.is-style-circle-mask img,
+		.wp-block-image.is-style-rounded img,
+		.wp-block-image .is-style-rounded img {
 			border-radius: 9999px
+		}
+
+		@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none) {
+			.wp-block-image.is-style-circle-mask img {
+				-webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+				mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+				mask-mode: alpha;
+				-webkit-mask-repeat: no-repeat;
+				mask-repeat: no-repeat;
+				-webkit-mask-size: contain;
+				mask-size: contain;
+				-webkit-mask-position: center;
+				mask-position: center;
+				border-radius: 0
+			}
+		}
+
+		.wp-block-image :where(.has-border-color) {
+			border-style: solid
+		}
+
+		.wp-block-image :where([style*=border-top-color]) {
+			border-top-style: solid
+		}
+
+		.wp-block-image :where([style*=border-right-color]) {
+			border-right-style: solid
+		}
+
+		.wp-block-image :where([style*=border-bottom-color]) {
+			border-bottom-style: solid
+		}
+
+		.wp-block-image :where([style*=border-left-color]) {
+			border-left-style: solid
+		}
+
+		.wp-block-image :where([style*=border-width]) {
+			border-style: solid
+		}
+
+		.wp-block-image :where([style*=border-top-width]) {
+			border-top-style: solid
+		}
+
+		.wp-block-image :where([style*=border-right-width]) {
+			border-right-style: solid
+		}
+
+		.wp-block-image :where([style*=border-bottom-width]) {
+			border-bottom-style: solid
+		}
+
+		.wp-block-image :where([style*=border-left-width]) {
+			border-left-style: solid
+		}
+
+		.wp-block-image figure {
+			margin: 0
+		}
+
+		.wp-block-image figcaption {
+			color: #555;
+			font-size: 13px;
+			text-align: center
+		}
+
+		.is-dark-theme .wp-block-image figcaption {
+			color: hsla(0, 0%, 100%, .65)
+		}
+
+		.wp-block-image {
+			margin: 0 0 1em
+		}
+	</style>
+	<style id='wp-block-group-inline-css'>
+		.wp-block-group {
+			box-sizing: border-box
+		}
+
+		:where(.wp-block-group.has-background) {
+			padding: 1.25em 2.375em
 		}
 	</style>
 	<style id='wp-block-navigation-link-inline-css'>
@@ -79,15 +193,6 @@
 	<style id='wp-block-navigation-inline-css'>
 		.wp-block-navigation a:where(:not(.wp-element-button)) {
 			color: inherit;
-		}
-	</style>
-	<style id='wp-block-group-inline-css'>
-		.wp-block-group {
-			box-sizing: border-box
-		}
-
-		:where(.wp-block-group.has-background) {
-			padding: 1.25em 2.375em
 		}
 	</style>
 	<style id='wp-block-button-inline-css'>
@@ -312,146 +417,6 @@
 
 		:where(p.has-text-color:not(.has-link-color)) a {
 			color: inherit
-		}
-	</style>
-	<style id='wp-block-image-inline-css'>
-		.wp-block-image img {
-			height: auto;
-			max-width: 100%;
-			vertical-align: bottom
-		}
-
-		.wp-block-image.has-custom-border img,
-		.wp-block-image img {
-			box-sizing: border-box
-		}
-
-		.wp-block-image.aligncenter {
-			text-align: center
-		}
-
-		.wp-block-image.alignfull img,
-		.wp-block-image.alignwide img {
-			height: auto;
-			width: 100%
-		}
-
-		.wp-block-image.aligncenter,
-		.wp-block-image .aligncenter,
-		.wp-block-image.alignleft,
-		.wp-block-image .alignleft,
-		.wp-block-image.alignright,
-		.wp-block-image .alignright {
-			display: table
-		}
-
-		.wp-block-image.aligncenter>figcaption,
-		.wp-block-image .aligncenter>figcaption,
-		.wp-block-image.alignleft>figcaption,
-		.wp-block-image .alignleft>figcaption,
-		.wp-block-image.alignright>figcaption,
-		.wp-block-image .alignright>figcaption {
-			display: table-caption;
-			caption-side: bottom
-		}
-
-		.wp-block-image .alignleft {
-			float: left;
-			margin: .5em 1em .5em 0
-		}
-
-		.wp-block-image .alignright {
-			float: right;
-			margin: .5em 0 .5em 1em
-		}
-
-		.wp-block-image .aligncenter {
-			margin-left: auto;
-			margin-right: auto
-		}
-
-		.wp-block-image figcaption {
-			margin-top: .5em;
-			margin-bottom: 1em
-		}
-
-		.wp-block-image.is-style-circle-mask img,
-		.wp-block-image.is-style-rounded img,
-		.wp-block-image .is-style-rounded img {
-			border-radius: 9999px
-		}
-
-		@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none) {
-			.wp-block-image.is-style-circle-mask img {
-				-webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
-				mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
-				mask-mode: alpha;
-				-webkit-mask-repeat: no-repeat;
-				mask-repeat: no-repeat;
-				-webkit-mask-size: contain;
-				mask-size: contain;
-				-webkit-mask-position: center;
-				mask-position: center;
-				border-radius: 0
-			}
-		}
-
-		.wp-block-image :where(.has-border-color) {
-			border-style: solid
-		}
-
-		.wp-block-image :where([style*=border-top-color]) {
-			border-top-style: solid
-		}
-
-		.wp-block-image :where([style*=border-right-color]) {
-			border-right-style: solid
-		}
-
-		.wp-block-image :where([style*=border-bottom-color]) {
-			border-bottom-style: solid
-		}
-
-		.wp-block-image :where([style*=border-left-color]) {
-			border-left-style: solid
-		}
-
-		.wp-block-image :where([style*=border-width]) {
-			border-style: solid
-		}
-
-		.wp-block-image :where([style*=border-top-width]) {
-			border-top-style: solid
-		}
-
-		.wp-block-image :where([style*=border-right-width]) {
-			border-right-style: solid
-		}
-
-		.wp-block-image :where([style*=border-bottom-width]) {
-			border-bottom-style: solid
-		}
-
-		.wp-block-image :where([style*=border-left-width]) {
-			border-left-style: solid
-		}
-
-		.wp-block-image figure {
-			margin: 0
-		}
-
-		.wp-block-image figcaption {
-			color: #555;
-			font-size: 13px;
-			text-align: center
-		}
-
-		.is-dark-theme .wp-block-image figcaption {
-			color: hsla(0, 0%, 100%, .65)
-		}
-
-		.wp-block-image {
-			margin: 0 0 1em
 		}
 	</style>
 	<style id='wp-block-columns-inline-css'>
@@ -1319,97 +1284,104 @@
 		}
 	</style>
 	<style id='core-block-supports-inline-css'>
-		.wp-elements-61bcb72752b4caba8544f7203114a8da a {
+		.wp-elements-fc787f3e9517fa65576eebfd1c1a3463 a {
 			color: var(--wp--preset--color--background);
 		}
 
-		.wp-block-group.wp-container-5 {
+		.wp-block-group.wp-container-1> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+			max-width: 130px;
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+
+		.wp-block-group.wp-container-1>.alignwide {
+			max-width: 130px;
+		}
+
+		.wp-block-group.wp-container-6 {
+			flex-wrap: nowrap;
+			gap: 0;
 			justify-content: space-between;
 		}
 
-		.wp-block-group.wp-container-36 {
+		.wp-block-group.wp-container-35 {
 			flex-direction: column;
 			align-items: flex-start;
 		}
 
-		.wp-block-group.wp-container-37> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		.wp-block-group.wp-container-36> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 			max-width: 450px;
 			margin-left: auto !important;
 			margin-right: 0 !important;
 		}
 
-		.wp-block-group.wp-container-37>.alignwide {
+		.wp-block-group.wp-container-36>.alignwide {
 			max-width: 450px;
 		}
 
-		.wp-block-group.wp-container-38 {
+		.wp-block-group.wp-container-37 {
 			flex-wrap: nowrap;
 			justify-content: center;
 		}
 
-		.wp-block-columns.wp-container-53 {
+		.wp-block-columns.wp-container-52 {
 			flex-wrap: nowrap;
 			gap: 0 0;
 		}
 
-		.wp-block-group.wp-container-7>*,
-		.wp-block-group.wp-container-7.wp-block-group.wp-container-7>*+* {
-			margin-block-start: 0;
-			margin-block-end: 0;
+		.wp-block-group.wp-container-1 .alignfull,
+		.wp-block-group.wp-container-23 .alignfull,
+		.wp-block-group.wp-container-26 .alignfull,
+		.wp-block-group.wp-container-29 .alignfull,
+		.wp-block-group.wp-container-32 .alignfull,
+		.wp-block-group.wp-container-36 .alignfull,
+		.wp-block-group.wp-container-38 .alignfull,
+		.wp-block-group.wp-container-40 .alignfull,
+		.wp-block-group.wp-container-42 .alignfull {
+			max-width: none;
 		}
 
-		.wp-block-columns.wp-container-11,
-		.wp-block-columns.wp-container-22,
-		.wp-block-columns.wp-container-35,
-		.wp-block-columns.wp-container-45 {
+		.wp-block-columns.wp-container-10,
+		.wp-block-columns.wp-container-21,
+		.wp-block-columns.wp-container-34,
+		.wp-block-columns.wp-container-44 {
 			flex-wrap: nowrap;
 		}
 
-		.wp-block-buttons.wp-container-23,
-		.wp-block-buttons.wp-container-26,
-		.wp-block-buttons.wp-container-29,
-		.wp-block-buttons.wp-container-32 {
+		.wp-block-buttons.wp-container-22,
+		.wp-block-buttons.wp-container-25,
+		.wp-block-buttons.wp-container-28,
+		.wp-block-buttons.wp-container-31 {
 			justify-content: center;
 		}
 
-		.wp-block-group.wp-container-24> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
-		.wp-block-group.wp-container-27> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
-		.wp-block-group.wp-container-30> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
-		.wp-block-group.wp-container-33> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		.wp-block-group.wp-container-23> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+		.wp-block-group.wp-container-26> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+		.wp-block-group.wp-container-29> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+		.wp-block-group.wp-container-32> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 			max-width: 260px;
 			margin-left: auto !important;
 			margin-right: auto !important;
 		}
 
-		.wp-block-group.wp-container-24>.alignwide,
-		.wp-block-group.wp-container-27>.alignwide,
-		.wp-block-group.wp-container-30>.alignwide,
-		.wp-block-group.wp-container-33>.alignwide {
+		.wp-block-group.wp-container-23>.alignwide,
+		.wp-block-group.wp-container-26>.alignwide,
+		.wp-block-group.wp-container-29>.alignwide,
+		.wp-block-group.wp-container-32>.alignwide {
 			max-width: 260px;
 		}
 
-		.wp-block-group.wp-container-24 .alignfull,
-		.wp-block-group.wp-container-27 .alignfull,
-		.wp-block-group.wp-container-30 .alignfull,
-		.wp-block-group.wp-container-33 .alignfull,
-		.wp-block-group.wp-container-37 .alignfull,
-		.wp-block-group.wp-container-39 .alignfull,
-		.wp-block-group.wp-container-41 .alignfull,
-		.wp-block-group.wp-container-43 .alignfull {
-			max-width: none;
-		}
-
-		.wp-block-group.wp-container-39> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
-		.wp-block-group.wp-container-41> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
-		.wp-block-group.wp-container-43> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		.wp-block-group.wp-container-38> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+		.wp-block-group.wp-container-40> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+		.wp-block-group.wp-container-42> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 			max-width: 100px;
 			margin-left: auto !important;
 			margin-right: auto !important;
 		}
 
-		.wp-block-group.wp-container-39>.alignwide,
-		.wp-block-group.wp-container-41>.alignwide,
-		.wp-block-group.wp-container-43>.alignwide {
+		.wp-block-group.wp-container-38>.alignwide,
+		.wp-block-group.wp-container-40>.alignwide,
+		.wp-block-group.wp-container-42>.alignwide {
 			max-width: 100px;
 		}
 	</style>
@@ -2163,8 +2135,8 @@
 		/* <![CDATA[ */
 		var rcewpp = {
 			"ajax_url": "http://localhost/wordpress/wp-admin/admin-ajax.php",
-			"nonce": "540685ac29",
-			"home_url": "http://localhost/wordpress/",
+			"nonce": "73aa2c8eda",
+			"home_url": "{{route("home.base")}}",
 			"settings_icon": 'http://localhost/wordpress/wp-content/plugins/export-wp-page-to-static-html/admin/images/settings.png',
 			"settings_hover_icon": 'http://localhost/wordpress/wp-content/plugins/export-wp-page-to-static-html/admin/images/settings_hover.png'
 		};
@@ -2569,43 +2541,6 @@
 			background: #139fb1;
 		}
 
-		div#n2-ss-6 .n2-font-a36b6eb4d4f532ad801fc978306dd036-link a {
-			font-family: 'Roboto', 'Arial';
-			color: #000000;
-			font-size: 87.5%;
-			text-shadow: 1px 1px 0px RGBA(0, 0, 0, 0.17);
-			line-height: 1.5;
-			font-weight: normal;
-			font-style: normal;
-			text-decoration: none;
-			text-align: center;
-			letter-spacing: 1px;
-			word-spacing: normal;
-			text-transform: none;
-			font-weight: bold;
-		}
-
-		div#n2-ss-6 .n2-font-a36b6eb4d4f532ad801fc978306dd036-link a:HOVER,
-		div#n2-ss-6 .n2-font-a36b6eb4d4f532ad801fc978306dd036-link a:ACTIVE,
-		div#n2-ss-6 .n2-font-a36b6eb4d4f532ad801fc978306dd036-link a:FOCUS {
-			color: #000000;
-		}
-
-		div#n2-ss-6 .n2-style-02de22a783e93824916b7f9ed1458367-heading {
-			background: RGBA(255, 255, 255, 0.5);
-			opacity: 1;
-			padding: 10px 18px 10px 18px;
-			box-shadow: none;
-			border: 1px solid RGBA(0, 0, 0, 1);
-			border-radius: 3px;
-		}
-
-		div#n2-ss-6 .n2-style-02de22a783e93824916b7f9ed1458367-heading:Hover,
-		div#n2-ss-6 .n2-style-02de22a783e93824916b7f9ed1458367-heading:ACTIVE,
-		div#n2-ss-6 .n2-style-02de22a783e93824916b7f9ed1458367-heading:FOCUS {
-			background: #139fb1;
-		}
-
 		div#n2-ss-6 .n2-style-09a8364a7159aeff35b6b40ac3f789f6-heading {
 			background: #ffffff;
 			opacity: 1;
@@ -2650,7 +2585,7 @@
 			max-width: 1200px;
 		}
 
-		div#n2-ss-6 .n-uc-jJe5FM00jCcP {
+		div#n2-ss-6 .n-uc-tLD7F9DhOCW8 {
 			padding: 20px 70px 60px 70px
 		}
 
@@ -2703,47 +2638,8 @@
 			--margin-bottom: 20px
 		}
 
-		div#n2-ss-6 .n-uc-K9PYjj0HrBzq {
+		div#n2-ss-6 .n-uc-DhYR2lr7hKxx {
 			padding: 20px 70px 60px 70px
-		}
-
-		div#n2-ss-6 .n-uc-ie2Q0VNHWKDM-inner {
-			padding: 10px 10px 10px 10px;
-			text-align: left;
-			--ssselfalign: var(--ss-fs);
-			;
-			justify-content: center
-		}
-
-		div#n2-ss-6 .n-uc-ie2Q0VNHWKDM {
-			align-self: var(--ss-fs);
-		}
-
-		div#n2-ss-6 .n-uc-TO2kbqqEhkDA-inner {
-			padding: 145px 35px 35px 30px
-		}
-
-		div#n2-ss-6 .n-uc-TO2kbqqEhkDA-inner>.n2-ss-layer-row-inner {
-			width: calc(100% + 21px);
-			margin: -10px;
-			flex-wrap: nowrap;
-		}
-
-		div#n2-ss-6 .n-uc-TO2kbqqEhkDA-inner>.n2-ss-layer-row-inner>.n2-ss-layer[data-sstype="col"] {
-			margin: 10px
-		}
-
-		div#n2-ss-6 .n-uc-TO2kbqqEhkDA {
-			max-width: 560px
-		}
-
-		div#n2-ss-6 .n-uc-fnPFVO7LGI4i-inner {
-			padding: 10px 10px 10px 10px;
-			justify-content: flex-start
-		}
-
-		div#n2-ss-6 .n-uc-fnPFVO7LGI4i {
-			width: 100%
 		}
 
 		div#n2-ss-6 .nextend-arrow img {
@@ -2758,7 +2654,7 @@
 
 		@media (orientation: landscape) and (max-width: 1199px) and (min-width: 901px),
 		(orientation: portrait) and (max-width: 1199px) and (min-width: 701px) {
-			div#n2-ss-6 .n-uc-jJe5FM00jCcP {
+			div#n2-ss-6 .n-uc-tLD7F9DhOCW8 {
 				padding: 20px 70px 60px 70px
 			}
 
@@ -2774,20 +2670,8 @@
 				width: 100%
 			}
 
-			div#n2-ss-6 .n-uc-K9PYjj0HrBzq {
+			div#n2-ss-6 .n-uc-DhYR2lr7hKxx {
 				padding: 20px 70px 60px 70px
-			}
-
-			div#n2-ss-6 .n-uc-ie2Q0VNHWKDM-inner {
-				padding: 10px 10px 10px 10px
-			}
-
-			div#n2-ss-6 .n-uc-TO2kbqqEhkDA-inner>.n2-ss-layer-row-inner {
-				flex-wrap: nowrap;
-			}
-
-			div#n2-ss-6 .n-uc-fnPFVO7LGI4i {
-				width: 100%
 			}
 
 			div#n2-ss-6 [data-hide-tabletportrait="1"] {
@@ -2797,7 +2681,7 @@
 
 		@media (orientation: landscape) and (max-width: 900px),
 		(orientation: portrait) and (max-width: 700px) {
-			div#n2-ss-6 .n-uc-jJe5FM00jCcP {
+			div#n2-ss-6 .n-uc-tLD7F9DhOCW8 {
 				padding: 20px 10px 60px 10px
 			}
 
@@ -2817,24 +2701,8 @@
 				width: calc(100% - 20px)
 			}
 
-			div#n2-ss-6 .n-uc-K9PYjj0HrBzq {
+			div#n2-ss-6 .n-uc-DhYR2lr7hKxx {
 				padding: 20px 10px 60px 10px
-			}
-
-			div#n2-ss-6 .n-uc-ie2Q0VNHWKDM-inner {
-				padding: 10px 10px 10px 10px
-			}
-
-			div#n2-ss-6 .n-uc-TO2kbqqEhkDA-inner {
-				padding: 15px 10px 15px 10px
-			}
-
-			div#n2-ss-6 .n-uc-TO2kbqqEhkDA-inner>.n2-ss-layer-row-inner {
-				flex-wrap: wrap;
-			}
-
-			div#n2-ss-6 .n-uc-fnPFVO7LGI4i {
-				width: calc(100% - 20px)
 			}
 
 			div#n2-ss-6 [data-hide-mobileportrait="1"] {
@@ -2873,7 +2741,7 @@
 	<link rel="wlwmanifest" type="application/wlwmanifest+xml"
 		href="http://localhost/wordpress/wp-includes/wlwmanifest.xml" />
 	<meta name="generator" content="WordPress 6.1.1" />
-	<link rel="canonical" href="http://localhost/wordpress/publisher-overview/" />
+	<link rel="canonical" href="{{route("home.publisherOverview")}}" />
 	<link rel='shortlink' href='http://localhost/wordpress/?p=2' />
 	<link rel="alternate" type="application/json+oembed"
 		href="http://localhost/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fpublisher-overview%2F" />
@@ -3032,10 +2900,10 @@
 	<meta name="generator"
 		content="Elementor 3.11.2; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
 	<link rel="preconnect" href="//code.tidio.co">
-	<link rel="icon" href="./images/21-1.png" sizes="32x32" />
-	<link rel="icon" href="./images/21-1.png" sizes="192x192" />
-	<link rel="apple-touch-icon" href="./images/21-1.png" />
-	<meta name="msapplication-TileImage" content="http://localhost/wordpress/wp-content/uploads/2023/03/21-1.png" />
+	<link rel="icon" href="./images/lllll-1.png" sizes="32x32" />
+	<link rel="icon" href="./images/lllll-1.png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="./images/lllll-1.png" />
+	<meta name="msapplication-TileImage" content="http://localhost/wordpress/wp-content/uploads/2023/03/lllll-1.png" />
 	<style id="egf-frontend-styles" type="text/css">
 		font-be {
 			font-family: 'Be Vietnam', sans-serif;
@@ -3080,7 +2948,7 @@
 		async></script>
 	<script src="./js/smart-slider-3-Public-SmartSlider3-Widget-Bullet-Assets-dist-w-bullet.min.js" defer
 		async></script>
-	<script>_N2.r('documentReady', function () { _N2.r(["documentReady", "smartslider-frontend", "SmartSliderWidgetArrowImage", "SmartSliderWidgetBulletTransition", "ss-simple"], function () { new _N2.SmartSliderSimple('n2-ss-6', { "admin": false, "background.video.mobile": 1, "loadingTime": 2000, "alias": { "id": 0, "smoothScroll": 0, "slideSwitch": 0, "scroll": 1 }, "align": "normal", "isDelayed": 0, "responsive": { "mediaQueries": { "all": false, "desktopportrait": ["(min-width: 1200px)"], "tabletportrait": ["(orientation: landscape) and (max-width: 1199px) and (min-width: 901px)", "(orientation: portrait) and (max-width: 1199px) and (min-width: 701px)"], "mobileportrait": ["(orientation: landscape) and (max-width: 900px)", "(orientation: portrait) and (max-width: 700px)"] }, "base": { "slideOuterWidth": 1200, "slideOuterHeight": 600, "sliderWidth": 1200, "sliderHeight": 600, "slideWidth": 1200, "slideHeight": 600 }, "hideOn": { "desktopLandscape": false, "desktopPortrait": false, "tabletLandscape": false, "tabletPortrait": false, "mobileLandscape": false, "mobilePortrait": false }, "onResizeEnabled": true, "type": "fullwidth", "sliderHeightBasedOn": "real", "focusUser": 1, "focusEdge": "auto", "breakpoints": [{ "device": "tabletPortrait", "type": "max-screen-width", "portraitWidth": 1199, "landscapeWidth": 1199 }, { "device": "mobilePortrait", "type": "max-screen-width", "portraitWidth": 700, "landscapeWidth": 900 }], "enabledDevices": { "desktopLandscape": 0, "desktopPortrait": 1, "tabletLandscape": 0, "tabletPortrait": 1, "mobileLandscape": 0, "mobilePortrait": 1 }, "sizes": { "desktopPortrait": { "width": 1200, "height": 600, "max": 3000, "min": 1200 }, "tabletPortrait": { "width": 701, "height": 350, "customHeight": false, "max": 1199, "min": 701 }, "mobilePortrait": { "width": 320, "height": 160, "customHeight": false, "max": 900, "min": 320 } }, "overflowHiddenPage": 0, "focus": { "offsetTop": "#wpadminbar", "offsetBottom": "" } }, "controls": { "mousewheel": 0, "touch": "horizontal", "keyboard": 1, "blockCarouselInteraction": 1 }, "playWhenVisible": 1, "playWhenVisibleAt": 0.5, "lazyLoad": 0, "lazyLoadNeighbor": 0, "blockrightclick": 0, "maintainSession": 0, "autoplay": { "enabled": 0, "start": 1, "duration": 8000, "autoplayLoop": 1, "allowReStart": 0, "pause": { "click": 1, "mouse": "0", "mediaStarted": 1 }, "resume": { "click": 0, "mouse": "0", "mediaEnded": 1, "slidechanged": 0 }, "interval": 1, "intervalModifier": "loop", "intervalSlide": "current" }, "perspective": 1500, "layerMode": { "playOnce": 0, "playFirstLayer": 1, "mode": "skippable", "inAnimation": "mainInEnd" }, "bgAnimations": 0, "mainanimation": { "type": "horizontal", "duration": 800, "delay": 0, "ease": "easeOutQuad", "shiftedBackgroundAnimation": 0 }, "carousel": 1, "initCallbacks": function () { new _N2.SmartSliderWidgetArrowImage(this); new _N2.SmartSliderWidgetBulletTransition(this, { "area": 10, "dotClasses": "n2-style-4f72beb15bfb0511e07bfb33dde48a42-dot ", "mode": "", "action": "click" }) } }) }) });</script>
+	<script>_N2.r('documentReady', function () { _N2.r(["documentReady", "smartslider-frontend", "SmartSliderWidgetArrowImage", "SmartSliderWidgetBulletTransition", "ss-simple"], function () { new _N2.SmartSliderSimple('n2-ss-6', { "admin": false, "background.video.mobile": 1, "loadingTime": 2000, "alias": { "id": 0, "smoothScroll": 0, "slideSwitch": 0, "scroll": 1 }, "align": "normal", "isDelayed": 0, "responsive": { "mediaQueries": { "all": false, "desktopportrait": ["(min-width: 1200px)"], "tabletportrait": ["(orientation: landscape) and (max-width: 1199px) and (min-width: 901px)", "(orientation: portrait) and (max-width: 1199px) and (min-width: 701px)"], "mobileportrait": ["(orientation: landscape) and (max-width: 900px)", "(orientation: portrait) and (max-width: 700px)"] }, "base": { "slideOuterWidth": 1200, "slideOuterHeight": 380, "sliderWidth": 1200, "sliderHeight": 380, "slideWidth": 1200, "slideHeight": 380 }, "hideOn": { "desktopLandscape": false, "desktopPortrait": false, "tabletLandscape": false, "tabletPortrait": false, "mobileLandscape": false, "mobilePortrait": false }, "onResizeEnabled": true, "type": "fullwidth", "sliderHeightBasedOn": "real", "focusUser": 1, "focusEdge": "auto", "breakpoints": [{ "device": "tabletPortrait", "type": "max-screen-width", "portraitWidth": 1199, "landscapeWidth": 1199 }, { "device": "mobilePortrait", "type": "max-screen-width", "portraitWidth": 700, "landscapeWidth": 900 }], "enabledDevices": { "desktopLandscape": 0, "desktopPortrait": 1, "tabletLandscape": 0, "tabletPortrait": 1, "mobileLandscape": 0, "mobilePortrait": 1 }, "sizes": { "desktopPortrait": { "width": 1200, "height": 380, "max": 3000, "min": 1200 }, "tabletPortrait": { "width": 701, "height": 221, "customHeight": false, "max": 1199, "min": 701 }, "mobilePortrait": { "width": 320, "height": 101, "customHeight": false, "max": 900, "min": 320 } }, "overflowHiddenPage": 0, "focus": { "offsetTop": "#wpadminbar", "offsetBottom": "" } }, "controls": { "mousewheel": 0, "touch": "horizontal", "keyboard": 1, "blockCarouselInteraction": 1 }, "playWhenVisible": 1, "playWhenVisibleAt": 0.5, "lazyLoad": 0, "lazyLoadNeighbor": 0, "blockrightclick": 0, "maintainSession": 0, "autoplay": { "enabled": 0, "start": 1, "duration": 8000, "autoplayLoop": 1, "allowReStart": 0, "pause": { "click": 1, "mouse": "0", "mediaStarted": 1 }, "resume": { "click": 0, "mouse": "0", "mediaEnded": 1, "slidechanged": 0 }, "interval": 1, "intervalModifier": "loop", "intervalSlide": "current" }, "perspective": 1500, "layerMode": { "playOnce": 0, "playFirstLayer": 1, "mode": "skippable", "inAnimation": "mainInEnd" }, "bgAnimations": 0, "mainanimation": { "type": "horizontal", "duration": 800, "delay": 0, "ease": "easeOutQuad", "shiftedBackgroundAnimation": 0 }, "carousel": 1, "initCallbacks": function () { new _N2.SmartSliderWidgetArrowImage(this); new _N2.SmartSliderWidgetBulletTransition(this, { "area": 10, "dotClasses": "n2-style-4f72beb15bfb0511e07bfb33dde48a42-dot ", "mode": "", "action": "click" }) } }) }) });</script>
 </head>
 
 <body
@@ -3298,126 +3166,112 @@
 	</svg>
 	<div class="wp-site-blocks">
 		<header class="wp-block-template-part">
-			<div class="is-content-justification-center is-layout-constrained wp-container-7 wp-elements-61bcb72752b4caba8544f7203114a8da wp-block-group alignfull has-source-serif-pro-font-family font-be has-background-color has-foreground-background-color has-text-color has-background has-link-color"
+			<div class="is-content-justification-space-between is-nowrap is-layout-flex wp-container-6 wp-elements-fc787f3e9517fa65576eebfd1c1a3463 wp-block-group alignfull has-source-serif-pro-font-family font-be has-background-color has-foreground-background-color has-text-color has-background has-link-color"
 				style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
-				<header class="alignwide font-be wp-block-template-part">
-					<div class="is-layout-constrained wp-block-group">
-						<div class="is-content-justification-space-between is-layout-flex wp-container-5 wp-block-group alignwide"
-							style="padding-top:0px;padding-bottom:0px;font-size:15px">
-							<div class="is-layout-flex wp-block-group">
-								<div style="padding-top:0.4rem;" class="wp-block-site-logo"><a
-										href="http://localhost/wordpress/" class="custom-logo-link" rel="home"><img
-											loading="lazy" width="139" height="40" src="./images/2023-03-21-1.png"
-											class="custom-logo" alt="MCCANNASIA" decoding="async" /></a></div>
-								<nav style="font-size:15px;"
-									class="is-layout-flex is-responsive font-be wp-block-navigation"
-									aria-label="Header navigation"><button aria-haspopup="true" aria-label="Open menu"
-										class="wp-block-navigation__responsive-container-open"
-										data-micromodal-trigger="modal-1"><svg width="24" height="24"
-											xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-											<path d="M5 5v1.5h14V5H5zm0 7.8h14v-1.5H5v1.5zM5 19h14v-1.5H5V19z" />
+				<div class="is-layout-flex wp-block-group">
+					<div class="is-layout-constrained wp-container-1 wp-block-group">
+						<figure class="wp-block-image size-full is-resized"><a href="{{route("home.base")}}"><img
+									decoding="async" loading="lazy" src="./images/2023-03-21-1.png" alt=""
+									class="wp-image-372" width="-717" height="-208" /></a></figure>
+					</div>
+					<nav style="font-size:15px;" class="is-layout-flex is-responsive font-be wp-block-navigation"
+						aria-label="Header navigation"><button aria-haspopup="true" aria-label="Open menu"
+							class="wp-block-navigation__responsive-container-open"
+							data-micromodal-trigger="modal-2"><svg width="24" height="24"
+								xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+								<path d="M5 5v1.5h14V5H5zm0 7.8h14v-1.5H5v1.5zM5 19h14v-1.5H5V19z" />
+							</svg></button>
+						<div class="wp-block-navigation__responsive-container" style="" id="modal-2">
+							<div class="wp-block-navigation__responsive-close" tabindex="-1" data-micromodal-close>
+								<div class="wp-block-navigation__responsive-dialog" aria-label="Menu"> <button
+										aria-label="Close menu" data-micromodal-close
+										class="wp-block-navigation__responsive-container-close"><svg
+											xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="24"
+											height="24" aria-hidden="true" focusable="false">
+											<path
+												d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z">
+											</path>
 										</svg></button>
-									<div class="wp-block-navigation__responsive-container" style="" id="modal-1">
-										<div class="wp-block-navigation__responsive-close" tabindex="-1"
-											data-micromodal-close>
-											<div class="wp-block-navigation__responsive-dialog" aria-label="Menu">
-												<button aria-label="Close menu" data-micromodal-close
-													class="wp-block-navigation__responsive-container-close"><svg
-														xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"
-														width="24" height="24" aria-hidden="true" focusable="false">
-														<path
-															d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z">
-														</path>
-													</svg></button>
-												<div class="wp-block-navigation__responsive-container-content"
-													id="modal-1-content">
-													<ul class="wp-block-navigation__container">
-														<li style="font-size: 15px;"
-															class="wp-block-navigation-item has-child open-on-click wp-block-navigation-submenu">
-															<button aria-label="Publisher submenu"
-																class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle"
-																aria-expanded="false"><span
-																	class="wp-block-navigation-item__label">Publisher</span></button><span
-																class="wp-block-navigation__submenu-icon"><svg
-																	xmlns="http://www.w3.org/2000/svg" width="12"
-																	height="12" viewbox="0 0 12 12" fill="none"
-																	aria-hidden="true" focusable="false">
-																	<path d="M1.50002 4L6.00002 8L10.5 4"
-																		stroke-width="1.5"></path>
-																</svg></span>
-															<ul class="wp-block-navigation__submenu-container">
-																<li style="font-size: 15px;"
-																	class="wp-block-navigation-item current-menu-item wp-block-navigation-link">
-																	<a class="wp-block-navigation-item__content"
-																		href="./publisher-overview.html"
-																		aria-current="page" title=""><span
-																			class="wp-block-navigation-item__label">Hệ
-																			sinh thái Publisher</span></a></li>
-																<li style="font-size: 15px;"
-																	class="wp-block-navigation-item wp-block-navigation-link">
-																	<a class="wp-block-navigation-item__content"
-																		href="http://localhost/wordpress/publisher-policy/"><span
-																			class="wp-block-navigation-item__label">Chính
-																			sách Publisher</span></a></li>
-															</ul>
-														</li>
-														<li style="font-size: 15px;"
-															class="wp-block-navigation-item wp-block-navigation-link"><a
-																class="wp-block-navigation-item__content"
-																href="http://localhost/wordpress/advertiser/"><span
-																	class="wp-block-navigation-item__label">Advertiser</span></a>
-														</li>
-														<li style="font-size: 15px;"
-															class="wp-block-navigation-item has-child open-on-click wp-block-navigation-submenu">
-															<button aria-label="Về MCCANNASIA submenu"
-																class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle"
-																aria-expanded="false"><span
-																	class="wp-block-navigation-item__label">Về
-																	MCCANNASIA</span></button><span
-																class="wp-block-navigation__submenu-icon"><svg
-																	xmlns="http://www.w3.org/2000/svg" width="12"
-																	height="12" viewbox="0 0 12 12" fill="none"
-																	aria-hidden="true" focusable="false">
-																	<path d="M1.50002 4L6.00002 8L10.5 4"
-																		stroke-width="1.5"></path>
-																</svg></span>
-															<ul class="wp-block-navigation__submenu-container">
-																<li style="font-size: 15px;"
-																	class="wp-block-navigation-item wp-block-navigation-link">
-																	<a class="wp-block-navigation-item__content"
-																		href="./about-us.html"><span
-																			class="wp-block-navigation-item__label">Giới
-																			Thiệu</span></a></li>
-																<li style="font-size: 15px;"
-																	class="wp-block-navigation-item wp-block-navigation-link">
-																	<a class="wp-block-navigation-item__content"
-																		href="http://localhost/wordpress/contact/"><span
-																			class="wp-block-navigation-item__label">Liên
-																			Hệ</span></a></li>
-															</ul>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
+									<div class="wp-block-navigation__responsive-container-content" id="modal-2-content">
+										<ul class="wp-block-navigation__container">
+											<li style="font-size: 15px;"
+												class="wp-block-navigation-item has-child open-on-click wp-block-navigation-submenu">
+												<button aria-label="Publisher submenu"
+													class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle"
+													aria-expanded="false"><span
+														class="wp-block-navigation-item__label">Publisher</span></button><span
+													class="wp-block-navigation__submenu-icon"><svg
+														xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+														viewbox="0 0 12 12" fill="none" aria-hidden="true"
+														focusable="false">
+														<path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path>
+													</svg></span>
+												<ul class="wp-block-navigation__submenu-container">
+													<li style="font-size: 15px;"
+														class="wp-block-navigation-item current-menu-item wp-block-navigation-link">
+														<a class="wp-block-navigation-item__content"
+															href="{{route("home.publisherOverview")}}" aria-current="page"
+															title=""><span class="wp-block-navigation-item__label">Hệ
+																sinh thái Publisher</span></a></li>
+													<li style="font-size: 15px;"
+														class="wp-block-navigation-item wp-block-navigation-link"><a
+															class="wp-block-navigation-item__content"
+															href="{{route("home.publisherPolicy")}}"><span
+																class="wp-block-navigation-item__label">Chính sách
+																Publisher</span></a></li>
+												</ul>
+											</li>
+											<li style="font-size: 15px;"
+												class="wp-block-navigation-item wp-block-navigation-link"><a
+													class="wp-block-navigation-item__content"
+													href="{{route("home.advertiser")}}"><span
+														class="wp-block-navigation-item__label">Advertiser</span></a>
+											</li>
+											<li style="font-size: 15px;"
+												class="wp-block-navigation-item has-child open-on-click wp-block-navigation-submenu">
+												<button aria-label="Về MCCANNASIA submenu"
+													class="wp-block-navigation-item__content wp-block-navigation-submenu__toggle"
+													aria-expanded="false"><span
+														class="wp-block-navigation-item__label">Về
+														MCCANNASIA</span></button><span
+													class="wp-block-navigation__submenu-icon"><svg
+														xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+														viewbox="0 0 12 12" fill="none" aria-hidden="true"
+														focusable="false">
+														<path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path>
+													</svg></span>
+												<ul class="wp-block-navigation__submenu-container">
+													<li style="font-size: 15px;"
+														class="wp-block-navigation-item wp-block-navigation-link"><a
+															class="wp-block-navigation-item__content"
+															href="{{route("home.aboutUs")}}"><span
+																class="wp-block-navigation-item__label">Giới
+																Thiệu</span></a></li>
+													<li style="font-size: 15px;"
+														class="wp-block-navigation-item wp-block-navigation-link"><a
+															class="wp-block-navigation-item__content"
+															href="{{route("home.contact")}}"><span
+																class="wp-block-navigation-item__label">Liên
+																Hệ</span></a></li>
+												</ul>
+											</li>
+										</ul>
 									</div>
-								</nav>
-							</div>
-							<div class="is-layout-flex wp-block-buttons">
-								<div class="wp-block-button has-custom-font-size is-style-fill register"
-									style="font-size:15px"><a
-										class="wp-block-button__link has-background wp-element-button"
-										style="border-radius:2px;background-color:#ef8900;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">Đăng
-										Ký</a></div>
-								<div class="wp-block-button has-custom-font-size is-style-outline"
-									style="font-size:15px"><a class="wp-block-button__link wp-element-button"
-										href="http://localhost/wordpress/login/"
-										style="border-radius:0px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">Đăng
-										Nhâp</a></div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</header>
+					</nav>
+				</div>
+				<div class="is-layout-flex wp-block-buttons">
+					<div class="wp-block-button has-custom-font-size is-style-fill register" style="font-size:15px"><a
+							class="wp-block-button__link has-background wp-element-button"
+							style="border-radius:2px;background-color:#ef8900;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">Đăng
+							Ký</a></div>
+					<div class="wp-block-button has-custom-font-size is-style-outline" style="font-size:15px"><a
+							class="wp-block-button__link wp-element-button" href="{{route("auth.login")}}"
+							style="border-radius:0px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">Đăng
+							Nhâp</a></div>
+				</div>
 			</div>
 		</header>
 		<div class="wp-block-nextend-smartslider3">
@@ -3450,11 +3304,11 @@
 														<div class="n2-ss-slide-background" data-public-id="2"
 															data-mode="fill">
 															<div class="n2-ss-slide-background-image" data-blur="0"
-																data-opacity="100" data-x="51" data-y="87" data-alt=""
-																data-title="" style="--ss-o-pos-x:51%;--ss-o-pos-y:87%">
+																data-opacity="100" data-x="0" data-y="43" data-alt=""
+																data-title="" style="--ss-o-pos-x:0%;--ss-o-pos-y:43%">
 																<picture class="skip-lazy" data-skip-lazy="1"><img
-																		src="./images/2023-03-2000x1000-copy.jpg" alt=""
-																		title="" loading="lazy" class="skip-lazy"
+																		src="./images/2023-03-z4167457140232_9e2b83e18f94953edefb1462eaeb3caa.jpg"
+																		alt="" title="" loading="lazy" class="skip-lazy"
 																		data-skip-lazy="1"></picture>
 															</div>
 															<div data-color="RGBA(255,255,255,0)"
@@ -3463,7 +3317,7 @@
 														</div>
 													</div>
 													<div class="n2-ss-slider-4 n2-ow"> <svg
-															xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 600"
+															xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 380"
 															data-related-device="desktopPortrait"
 															class="n2-ow n2-ss-preserve-size n2-ss-preserve-size--slider n2-ss-slide-limiter"></svg>
 														<div data-first="1" data-slide-duration="0" data-id="22"
@@ -3473,7 +3327,7 @@
 																Slide 1</div>
 															<div
 																class="n2-ss-layers-container n2-ss-slide-limiter n2-ow">
-																<div class="n2-ss-layer n2-ow n-uc-jJe5FM00jCcP"
+																<div class="n2-ss-layer n2-ow n-uc-tLD7F9DhOCW8"
 																	data-sstype="slide" data-pm="default">
 																	<div class="n2-ss-layer n2-ow n-uc-1c6c49c96a8d6"
 																		data-pm="default" data-sstype="content"
@@ -3528,7 +3382,7 @@
 																									<div
 																										class="n2-ss-button-container n2-ss-item-content n2-ow n2-font-67837f6c98c4af958346b8c4e6bdf28d-link  n2-ss-nowrap n2-ss-button-container--non-full-width">
 																										<a class="n2-style-8697df50b580bee01506085eea8b728f-heading  n2-ow"
-																											href="http://localhost/wordpress/register/">
+																											href="{{route("auth.register")}}">
 																											<div>
 																												<div>
 																													ĐĂNG
@@ -3555,47 +3409,8 @@
 																Slide 1</div>
 															<div
 																class="n2-ss-layers-container n2-ss-slide-limiter n2-ow">
-																<div class="n2-ss-layer n2-ow n-uc-K9PYjj0HrBzq"
-																	data-sstype="slide" data-pm="default">
-																	<div class="n2-ss-layer n2-ow n-uc-ie2Q0VNHWKDM"
-																		data-pm="default" data-sstype="content"
-																		data-hasbackground="0">
-																		<div
-																			class="n2-ss-section-main-content n2-ss-layer-with-background n2-ss-layer-content n2-ow n-uc-ie2Q0VNHWKDM-inner">
-																			<div class="n2-ss-layer n2-ow n2-ss-layer--block n2-ss-has-self-align n-uc-TO2kbqqEhkDA"
-																				data-pm="normal" data-sstype="row">
-																				<div
-																					class="n2-ss-layer-row n2-ss-layer-with-background n-uc-TO2kbqqEhkDA-inner">
-																					<div class="n2-ss-layer-row-inner">
-																						<div class="n2-ss-layer n2-ow n-uc-fnPFVO7LGI4i"
-																							data-pm="default"
-																							data-sstype="col">
-																							<div
-																								class="n2-ss-layer-col n2-ss-layer-with-background n2-ss-layer-content n-uc-fnPFVO7LGI4i-inner">
-																								<div class="n2-ss-layer n2-ow n-uc-z3RX96fuL8Z1 n2-ss-layer--auto"
-																									data-pm="normal"
-																									data-sstype="layer">
-																									<div
-																										class="n2-ss-button-container n2-ss-item-content n2-ow n2-font-a36b6eb4d4f532ad801fc978306dd036-link  n2-ss-nowrap n2-ss-button-container--non-full-width">
-																										<a class="n2-style-02de22a783e93824916b7f9ed1458367-heading  n2-ow"
-																											href="http://localhost/wordpress/register/">
-																											<div>
-																												<div>
-																													ĐĂNG
-																													KÝ
-																													NGAY
-																												</div>
-																											</div>
-																										</a></div>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
+																<div class="n2-ss-layer n2-ow n-uc-DhYR2lr7hKxx"
+																	data-sstype="slide" data-pm="default"></div>
 															</div>
 														</div>
 													</div>
@@ -3646,7 +3461,7 @@
 		</div>
 		<h3 class="has-text-align-center font-be" style="font-size:35px"><strong>Bạn Kiếm Tiền Với MCCANNASIA Như Thế
 				Nào?</strong></h3>
-		<div class="is-layout-flex wp-container-11 wp-block-columns">
+		<div class="is-layout-flex wp-container-10 wp-block-columns">
 			<div class="is-layout-flow wp-block-column"
 				style="border-width:1px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
 				<p class="has-text-align-center font-be has-text-color" style="color:#ed7325;font-size:40px">
@@ -3654,8 +3469,8 @@
 				<figure class="wp-block-image size-full font-be"><img decoding="async" loading="lazy" width="400"
 						height="280" src="./images/2023-03-z4161604008855_408de97e17f90eb79f557a8eebc62f05.jpg" alt=""
 						class="wp-image-590" /></figure>
-				<p class="font-be" style="font-size:15px">ACCESSTRADE là cầu nối giữa&nbsp;<strong>Bạn</strong>&nbsp;với
-					các&nbsp;<strong>Nhà cung cấp</strong></p>
+				<p class="font-be" style="font-size:15px">MCCANNASIA là cầu nối giữa <strong>Bạn</strong> với
+					các <strong>Nhà cung cấp</strong></p>
 			</div>
 			<div class="is-layout-flow wp-block-column"
 				style="border-width:1px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
@@ -3674,14 +3489,14 @@
 				<figure class="wp-block-image size-full font-be"><img decoding="async" loading="lazy" width="400"
 						height="280" src="./images/2023-03-z4161604790333_5db71f717c62dea9c15f9704155c66be.jpg" alt=""
 						class="wp-image-592" /></figure>
-				<p style="font-size:15px"><strong>Nhà cung cấp</strong>&nbsp;thanh toán hoa hồng
-					cho&nbsp;<strong>Bạn</strong>&nbsp;thông qua ACCESSTRADE</p>
+				<p style="font-size:15px"><strong>Nhà cung cấp</strong> thanh toán hoa hồng
+					cho <strong>Bạn</strong> thông qua MCCANNASIA</p>
 			</div>
 		</div>
 		<p class="has-text-align-center font-roboto has-text-color" style="color:#ff7e00;font-size:35px"><strong
 				style="color:#ff7e00">5 LÝ DO VÌ SAO <strong>MCCANNASIA </strong></strong><br><strong
 				style="color:#5a5a5a">Là Sự Lựa Chọn Của Hơn 2,000,000 Publishers</strong></p>
-		<div class="is-layout-flex wp-container-22 wp-block-columns">
+		<div class="is-layout-flex wp-container-21 wp-block-columns">
 			<div class="is-layout-flow wp-block-column">
 				<div class="is-layout-flow wp-block-group">
 					<figure class="wp-block-image aligncenter size-large is-resized"><img decoding="async"
@@ -3736,9 +3551,9 @@
 		<p class="has-text-align-center font-be has-text-color" style="color:#54595f;font-size:35px"><strong>Ai Có Thể
 				Kiếm Tiền Với <strong>MCCANNASIA </strong></strong></p>
 		<p></p>
-		<div class="is-layout-flex wp-container-35 wp-block-columns">
+		<div class="is-layout-flex wp-container-34 wp-block-columns">
 			<div class="is-layout-flow wp-block-column" style="flex-basis:100%">
-				<div class="is-layout-constrained wp-container-24 wp-block-group">
+				<div class="is-layout-constrained wp-container-23 wp-block-group">
 					<figure class="wp-block-image size-full has-custom-border"><img decoding="async" loading="lazy"
 							width="616" height="411"
 							src="./images/2023-03-z4159135215716_59b8f0c99f87e36972cc7714e1fc8363-1.jpg" alt=""
@@ -3751,16 +3566,16 @@
 							rel="noreferrer noopener"
 							href="https://workspace.accesstrade.vn/authentication/register?lang=vi" target="_blank"></a>
 					</p>
-					<div class="is-content-justification-center is-layout-flex wp-container-23 wp-block-buttons">
+					<div class="is-content-justification-center is-layout-flex wp-container-22 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
+								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
 			</div>
 			<div class="is-layout-flow wp-block-column" style="flex-basis:100%">
-				<div class="is-layout-constrained wp-container-27 wp-block-group">
+				<div class="is-layout-constrained wp-container-26 wp-block-group">
 					<figure class="wp-block-image size-full has-custom-border"><img decoding="async" loading="lazy"
 							width="1269" height="846"
 							src="./images/2023-03-z4159135762754_4f8f2b4a758f04e72c29761488a70618-1.jpg" alt=""
@@ -3772,16 +3587,16 @@
 						MCCANNASIA <a rel="noreferrer noopener"
 							href="https://workspace.accesstrade.vn/authentication/register?lang=vi" target="_blank"></a>
 					</p>
-					<div class="is-content-justification-center is-layout-flex wp-container-26 wp-block-buttons">
+					<div class="is-content-justification-center is-layout-flex wp-container-25 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
+								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
 			</div>
 			<div class="is-layout-flow wp-block-column" style="flex-basis:100%">
-				<div class="is-layout-constrained wp-container-30 wp-block-group">
+				<div class="is-layout-constrained wp-container-29 wp-block-group">
 					<figure class="wp-block-image size-full has-custom-border"><img decoding="async" loading="lazy"
 							width="800" height="534"
 							src="./images/2023-03-z4159136060395_c575f7c9f895f6c54d276c0a2bef7d7d.jpg" alt=""
@@ -3792,16 +3607,16 @@
 						mình với MCCANNASIA <a rel="noreferrer noopener"
 							href="https://workspace.accesstrade.vn/authentication/register?lang=vi" target="_blank"></a>
 					</p>
-					<div class="is-content-justification-center is-layout-flex wp-container-29 wp-block-buttons">
+					<div class="is-content-justification-center is-layout-flex wp-container-28 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
+								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
 			</div>
 			<div class="is-layout-flow wp-block-column" style="flex-basis:100%">
-				<div class="is-layout-constrained wp-container-33 wp-block-group">
+				<div class="is-layout-constrained wp-container-32 wp-block-group">
 					<figure class="wp-block-image size-full has-custom-border"><img decoding="async" loading="lazy"
 							width="500" height="333"
 							src="./images/2023-03-z4159136506192_07a132391c31c223a28987549f9dbcd7.jpg" alt=""
@@ -3810,24 +3625,24 @@
 					<p class="has-text-align-center font-be" style="font-size:16px">Bạn có từ 2,000 người theo dõi trở
 						lên cho một mạng xã hội bất kỳ (YouTube, TikTok, Facebook, Instagram). Hãy đăng ký trở thành KOC
 						với thu nhập hấp dẫn &amp; ổn định tại MCCANNASIA </p>
-					<div class="is-content-justification-center is-layout-flex wp-container-32 wp-block-buttons">
+					<div class="is-content-justification-center is-layout-flex wp-container-31 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
+								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="is-content-justification-center is-nowrap is-layout-flex wp-container-38 wp-block-group"
+		<div class="is-content-justification-center is-nowrap is-layout-flex wp-container-37 wp-block-group"
 			style="padding-top:20px;padding-bottom:20px">
-			<div class="is-vertical is-layout-flex wp-container-36 wp-block-group">
+			<div class="is-vertical is-layout-flex wp-container-35 wp-block-group">
 				<p class="font-be" style="font-size:30px"><strong>GIỚI THIỆU NGƯỜI MỚI</strong></p>
 				<p class="font-be" style="font-size:30px"><strong>HOA HỒNG PHƠI PHỚI</strong></p>
 				<p class="font-be" style="font-size:17px">Thu nhập hàng tháng lên đến:</p>
 				<p class="font-be has-text-color" style="color:#ef8900;font-size:40px"><strong>20.000.000</strong></p>
 			</div>
-			<div class="is-content-justification-right is-layout-constrained wp-container-37 wp-block-group">
+			<div class="is-content-justification-right is-layout-constrained wp-container-36 wp-block-group">
 				<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1024" height="793"
 						src="./images/2023-03-img-1-1024x793-1.png" alt="" class="wp-image-484" /></figure>
 			</div>
@@ -3838,9 +3653,9 @@
 			được</p>
 		<p class="has-text-align-center font-be has-text-color" style="color:#54595f;font-size:21px"><strong>Bắt Đầu
 				Ngay Chỉ Với 3 Bước</strong></p>
-		<div class="is-layout-flex wp-container-45 wp-block-columns">
+		<div class="is-layout-flex wp-container-44 wp-block-columns">
 			<div class="is-layout-flow wp-block-column">
-				<div class="is-layout-constrained wp-container-39 wp-block-group">
+				<div class="is-layout-constrained wp-container-38 wp-block-group">
 					<figure class="wp-block-image alignwide size-full"><img decoding="async" loading="lazy" width="161"
 							height="175" src="./images/2023-03-1.png" alt="" class="wp-image-495" /></figure>
 				</div>
@@ -3848,14 +3663,14 @@
 				<p class="has-text-align-center font-roboto" style="font-size:15px">(Bỏ qua nếu đã có tài khoản)</p>
 			</div>
 			<div class="is-layout-flow wp-block-column">
-				<div class="is-layout-constrained wp-container-41 wp-block-group">
+				<div class="is-layout-constrained wp-container-40 wp-block-group">
 					<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="155"
 							height="169" src="./images/2023-03-2.png" alt="" class="wp-image-496" /></figure>
 				</div>
 				<p class="has-text-align-center font-roboto" style="font-size:15px">Tạo&nbsp;Link giới thiệu bạn bè</p>
 			</div>
 			<div class="is-layout-flow wp-block-column">
-				<div class="is-layout-constrained wp-container-43 wp-block-group">
+				<div class="is-layout-constrained wp-container-42 wp-block-group">
 					<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="162"
 							height="175" src="./images/2023-03-3.png" alt="" class="wp-image-497" /></figure>
 				</div>
@@ -3865,8 +3680,8 @@
 		</div>
 		<footer class="wp-block-template-part">
 			<div class="is-layout-flow wp-block-group has-foreground-background-color has-background"
-				style="margin-top:0;margin-bottom:0;padding-top:var(--wp--custom--spacing--large, 8rem);padding-right:0;padding-bottom:0;padding-left:0">
-				<div class="is-layout-flex wp-container-53 wp-block-columns alignwide"
+				style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+				<div class="is-layout-flex wp-container-52 wp-block-columns alignwide"
 					style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
 					<div class="is-layout-flow wp-block-column">
 						<figure class="wp-block-image size-full is-resized"><img decoding="async" loading="lazy"
@@ -3989,14 +3804,14 @@
 							Asia<br /> Bạn sẽ nhận về HOA HỒNG TƯƠNG ỨNG với mỗi NHIỆM VỤ ONLINE do bạn thực hiện thành
 							công.</div>
 						<div class="left-side text-button-div"><a class="text-button" role="button"
-								href="http://localhost/wordpress/register/" rel="nofollow noopener">ĐĂNG KÝ</a></div>
+								href="{{route("auth.register")}}" rel="nofollow noopener">ĐĂNG KÝ</a></div>
 					</div>
 					<div class="inner-dialog right-side">
 						<h2>ADVERTISER<br /> TƯ VẤN DOANH NGHIỆP</h2>
 						<div><b>Advertiser</b> là các <b>Doanh Nghiệp – Nhà Cung Cấp</b> mong muốn hợp tác tăng trưởng
 							với MCCANNASIA.</div>
 						<div class="right-side text-button-div"><a class="text-button" role="button"
-								href="http://localhost/wordpress/contact/" rel="nofollow noopener">LIÊN HỆ</a></div>
+								href="{{route("home.contact")}}" rel="nofollow noopener">LIÊN HỆ</a></div>
 					</div>
 				</div>
 			</div> <button type="button" class="pum-close popmake-close" aria-label="Close"> X </button>
