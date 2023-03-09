@@ -3306,7 +3306,7 @@
 							style="padding-top:0px;padding-bottom:0px;font-size:15px">
 							<div class="is-layout-flex wp-block-group">
 								<div style="padding-top:0.4rem;" class="wp-block-site-logo"><a
-										href="{{route("home.base")}}" class="custom-logo-link" rel="home"><img
+										href="http://localhost/wordpress/" class="custom-logo-link" rel="home"><img
 											loading="lazy" width="139" height="40" src="./images/2023-03-21-1.png"
 											class="custom-logo" alt="MCCANNASIA" decoding="async" /></a></div>
 								<nav style="font-size:15px;"
@@ -3349,14 +3349,14 @@
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item current-menu-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.publisherOverview")}}"
+																		href="./publisher-overview.html"
 																		aria-current="page" title=""><span
 																			class="wp-block-navigation-item__label">Hệ
 																			sinh thái Publisher</span></a></li>
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.publisherPolicy")}}"><span
+																		href="http://localhost/wordpress/publisher-policy/"><span
 																			class="wp-block-navigation-item__label">Chính
 																			sách Publisher</span></a></li>
 															</ul>
@@ -3364,7 +3364,7 @@
 														<li style="font-size: 15px;"
 															class="wp-block-navigation-item wp-block-navigation-link"><a
 																class="wp-block-navigation-item__content"
-																href="{{route("home.advertiser")}}"><span
+																href="http://localhost/wordpress/advertiser/"><span
 																	class="wp-block-navigation-item__label">Advertiser</span></a>
 														</li>
 														<li style="font-size: 15px;"
@@ -3385,13 +3385,13 @@
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.aboutUs")}}"><span
+																		href="./about-us.html"><span
 																			class="wp-block-navigation-item__label">Giới
 																			Thiệu</span></a></li>
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.contact")}}"><span
+																		href="http://localhost/wordpress/contact/"><span
 																			class="wp-block-navigation-item__label">Liên
 																			Hệ</span></a></li>
 															</ul>
@@ -3411,7 +3411,7 @@
 										Ký</a></div>
 								<div class="wp-block-button has-custom-font-size is-style-outline"
 									style="font-size:15px"><a class="wp-block-button__link wp-element-button"
-										href="{{route("auth.login")}}"
+										href="http://localhost/wordpress/login/"
 										style="border-radius:0px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">Đăng
 										Nhâp</a></div>
 							</div>
@@ -3528,7 +3528,7 @@
 																									<div
 																										class="n2-ss-button-container n2-ss-item-content n2-ow n2-font-67837f6c98c4af958346b8c4e6bdf28d-link  n2-ss-nowrap n2-ss-button-container--non-full-width">
 																										<a class="n2-style-8697df50b580bee01506085eea8b728f-heading  n2-ow"
-																											href="{{route("auth.register")}}">
+																											href="http://localhost/wordpress/register/">
 																											<div>
 																												<div>
 																													ĐĂNG
@@ -3578,7 +3578,7 @@
 																									<div
 																										class="n2-ss-button-container n2-ss-item-content n2-ow n2-font-a36b6eb4d4f532ad801fc978306dd036-link  n2-ss-nowrap n2-ss-button-container--non-full-width">
 																										<a class="n2-style-02de22a783e93824916b7f9ed1458367-heading  n2-ow"
-																											href="{{route("auth.register")}}">
+																											href="http://localhost/wordpress/register/">
 																											<div>
 																												<div>
 																													ĐĂNG
@@ -3754,7 +3754,7 @@
 					<div class="is-content-justification-center is-layout-flex wp-container-23 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
+								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
@@ -3775,7 +3775,7 @@
 					<div class="is-content-justification-center is-layout-flex wp-container-26 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
+								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
@@ -3795,7 +3795,7 @@
 					<div class="is-content-justification-center is-layout-flex wp-container-29 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
+								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
@@ -3813,7 +3813,7 @@
 					<div class="is-content-justification-center is-layout-flex wp-container-32 wp-block-buttons">
 						<div class="wp-block-button has-custom-font-size font-be" style="font-size:15px"><a
 								class="wp-block-button__link has-background wp-element-button"
-								href="{{route("auth.register")}}" style="background-color:#ffa001">Đăng ký
+								href="http://localhost/wordpress/register/" style="background-color:#ffa001">Đăng ký
 								ngay</a></div>
 					</div>
 				</div>
@@ -3989,14 +3989,14 @@
 							Asia<br /> Bạn sẽ nhận về HOA HỒNG TƯƠNG ỨNG với mỗi NHIỆM VỤ ONLINE do bạn thực hiện thành
 							công.</div>
 						<div class="left-side text-button-div"><a class="text-button" role="button"
-								href="{{route("auth.register")}}" rel="nofollow noopener">ĐĂNG KÝ</a></div>
+								href="http://localhost/wordpress/register/" rel="nofollow noopener">ĐĂNG KÝ</a></div>
 					</div>
 					<div class="inner-dialog right-side">
 						<h2>ADVERTISER<br /> TƯ VẤN DOANH NGHIỆP</h2>
 						<div><b>Advertiser</b> là các <b>Doanh Nghiệp – Nhà Cung Cấp</b> mong muốn hợp tác tăng trưởng
 							với MCCANNASIA.</div>
 						<div class="right-side text-button-div"><a class="text-button" role="button"
-								href="{{route("home.contact")}}" rel="nofollow noopener">LIÊN HỆ</a></div>
+								href="http://localhost/wordpress/contact/" rel="nofollow noopener">LIÊN HỆ</a></div>
 					</div>
 				</div>
 			</div> <button type="button" class="pum-close popmake-close" aria-label="Close"> X </button>

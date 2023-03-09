@@ -2465,7 +2465,7 @@
 	<link rel="wlwmanifest" type="application/wlwmanifest+xml"
 		href="http://localhost/wordpress/wp-includes/wlwmanifest.xml" />
 	<meta name="generator" content="WordPress 6.1.1" />
-	<link rel="canonical" href="{{route("home.aboutUs")}}" />
+	<link rel="canonical" href="http://localhost/wordpress/about-us/" />
 	<link rel='shortlink' href='http://localhost/wordpress/?p=521' />
 	<link rel="alternate" type="application/json+oembed"
 		href="http://localhost/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fabout-us%2F" />
@@ -2895,7 +2895,7 @@
 						<div class="is-content-justification-space-between is-layout-flex wp-container-5 wp-block-group alignwide"
 							style="padding-top:0px;padding-bottom:0px;font-size:15px">
 							<div class="is-layout-flex wp-block-group">
-								<div style="padding-top:0.4rem;" class="wp-block-site-logo"><a href="{{route("home.base")}}"
+								<div style="padding-top:0.4rem;" class="wp-block-site-logo"><a href="./index.html"
 										class="custom-logo-link" rel="home"><img loading="lazy" width="139" height="40"
 											src="./images/2023-03-21-1.png" class="custom-logo" alt="MCCANNASIA"
 											decoding="async" /></a></div>
@@ -2939,14 +2939,14 @@
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.publisherOverview")}}"
+																		href="http://localhost/wordpress/publisher-overview/"
 																		title=""><span
 																			class="wp-block-navigation-item__label">Hệ
 																			sinh thái Publisher</span></a></li>
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.publisherPolicy")}}"><span
+																		href="http://localhost/wordpress/publisher-policy/"><span
 																			class="wp-block-navigation-item__label">Chính
 																			sách Publisher</span></a></li>
 															</ul>
@@ -2954,7 +2954,7 @@
 														<li style="font-size: 15px;"
 															class="wp-block-navigation-item wp-block-navigation-link"><a
 																class="wp-block-navigation-item__content"
-																href="{{route("home.advertiser")}}"><span
+																href="http://localhost/wordpress/advertiser/"><span
 																	class="wp-block-navigation-item__label">Advertiser</span></a>
 														</li>
 														<li style="font-size: 15px;"
@@ -2975,13 +2975,13 @@
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item current-menu-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.aboutUs")}}" aria-current="page"><span
+																		href="./about-us.html" aria-current="page"><span
 																			class="wp-block-navigation-item__label">Giới
 																			Thiệu</span></a></li>
 																<li style="font-size: 15px;"
 																	class="wp-block-navigation-item wp-block-navigation-link">
 																	<a class="wp-block-navigation-item__content"
-																		href="{{route("home.contact")}}"><span
+																		href="./contact.html"><span
 																			class="wp-block-navigation-item__label">Liên
 																			Hệ</span></a></li>
 															</ul>
@@ -3001,7 +3001,7 @@
 										Ký</a></div>
 								<div class="wp-block-button has-custom-font-size is-style-outline"
 									style="font-size:15px"><a class="wp-block-button__link wp-element-button"
-										href="{{route("auth.login")}}"
+										href="http://localhost/wordpress/login/"
 										style="border-radius:0px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">Đăng
 										Nhâp</a></div>
 							</div>
@@ -3079,7 +3079,10 @@
 		</div>
 		<h2 class="has-text-align-center font-lato" style="font-size:35px"><strong>CÂU CHUYỆN <span
 					style="color: #ff7e02;">MCCANNASIA</span></strong></h2>
-		<p class="has-text-align-center font-be" style="font-size:18px">McCann Asia là một nền tảng trung gian kết nối các công ty thương mại và dịch vụ trực tuyến về thương mại điện tử, bán lẻ, ngân hàng và tài chính (Gọi là Advertisers)…và đặt chỗ trực tuyến với các đối tác phương tiện truyền thông ( Gọi là Publishers) để quảng bá sản phẩm đến người dùng, giúp tăng doanh thu bền vững cho các bên tham gia trên cơ sở hợp tác cùng có lợi</p>
+		<p class="has-text-align-center font-be" style="font-size:18px">MCCANNASIA là nền tảng Affiliate Marketing hàng
+			đầu SEASIA hiện đang kết nối 1.000+ doanh nghiệp có nhu cầu quảng bá sản phẩm/dịch vụ (gọi là Advertiser) và
+			mạng lưới 1.500.000+ đối tác sở hữu kênh online để quảng bá sản phẩm/ dịch vụ trên khắp Việt Nam (gọi là
+			Publisher), giúp tăng trưởng doanh thu bền vững cho các bên tham gia trên cơ sở Win-Win</p>
 		<p class="has-text-align-center font-lato" style="font-size:35px"><strong>SỨ MỆNH <span
 					style="color: #ff7e02;">MCCANNASIA</span></strong></p>
 		<div class="is-layout-flex wp-container-28 wp-block-columns">
@@ -3377,14 +3380,14 @@
 							Asia<br /> Bạn sẽ nhận về HOA HỒNG TƯƠNG ỨNG với mỗi NHIỆM VỤ ONLINE do bạn thực hiện thành
 							công.</div>
 						<div class="left-side text-button-div"><a class="text-button" role="button"
-								href="{{route("auth.register")}}" rel="nofollow noopener">ĐĂNG KÝ</a></div>
+								href="http://localhost/wordpress/register/" rel="nofollow noopener">ĐĂNG KÝ</a></div>
 					</div>
 					<div class="inner-dialog right-side">
 						<h2>ADVERTISER<br /> TƯ VẤN DOANH NGHIỆP</h2>
 						<div><b>Advertiser</b> là các <b>Doanh Nghiệp – Nhà Cung Cấp</b> mong muốn hợp tác tăng trưởng
 							với MCCANNASIA.</div>
 						<div class="right-side text-button-div"><a class="text-button" role="button"
-								href="{{route("home.contact")}}" rel="nofollow noopener">LIÊN HỆ</a></div>
+								href="./contact.html" rel="nofollow noopener">LIÊN HỆ</a></div>
 					</div>
 				</div>
 			</div> <button type="button" class="pum-close popmake-close" aria-label="Close"> X </button>
